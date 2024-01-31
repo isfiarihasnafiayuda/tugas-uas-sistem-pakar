@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pakar OOTD Kuliah</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Roboto:wght@400&display=swap">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color:  #0d6efd;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        label, select, button {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        button {
+            padding: 10px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                width: 90%;
+                height: max-content;
+            }
+            .p {
+                font-size: small;
+            }
+            .h3 {
+                font-size: small;
+            }
+
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p style="text-align: center;"><strong>Isfiari Hasnafia Yuda</strong></p>
+        <p style="text-align: center;">21832009</p>
+        <h2 style="text-align: center;">Sistem Pakar</h2>
+        <h3 style="text-align: center;"><q>Pemilihan OOTD Kuliah</q></h3>
+        <p style="text-align: center;">Pilih beberapa opsi di bawah untuk mendapatkan rekomendasi OOTD kuliah.</p>
+        
+        <label for="cuaca">Cuaca:</label>
+        <select id="cuaca" class="form-control">
+            <option value="cerah">Cerah</option>
+            <option value="berawan">Berawan</option>
+            <option value="hujan">Hujan</option>
+            <option value="sejuk">Sejuk</option>
+        </select>
+
+        <label for="aktivitas">Aktivitas:</label>
+        <select id="aktivitas" class="form-control">
+            <option value="kelas">Kuliah</option>
+            <option value="perpustakaan">Perpustakaan</option>
+            <option value="kantin">Kantin</option>
+        </select>
+
+        <label for="style">Style:</label>
+        <select id="style" class="form-control">
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+            <option value="sporty">Sporty</option>
+            <option value="boheiman">Boheiman</option>
+            <option value="minimalis">Minimalis</option>
+        </select>
+
+        <button onclick="getOOTD()" class="btn btn-primary btn-block">Dapatkan Rekomendasi OOTD</button>
+
+        <div id="hasilOOTD" class="mt-3"></div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function getOOTD() {
+    var cuaca = document.getElementById("cuaca").value;
+    var aktivitas = document.getElementById("aktivitas").value;
+    var style = document.getElementById("style").value;
+
+    var hasilOOTD = "Rekomendasi OOTD: ";
+
+    if (cuaca === "cerah") {
+        hasilOOTD += "Atasan Blus atau kaos berwarna cerah.";
+    } else if (cuaca === "berawan") {
+        hasilOOTD += "Atasan berlengan panjang dengan celana jeans.";
+    } else if (cuaca === "hujan") {
+        hasilOOTD += "Jaket hujan dengan celana panjang.";
+    } else if (cuaca === "sejuk") {
+        hasilOOTD += "Sweater atau jaket tebal dengan celana jeans atau legging.";
+    }
+
+    if (aktivitas === "kelas") {
+        hasilOOTD += " Cocok untuk suasana kelas.";
+    } else if (aktivitas === "perpustakaan") {
+        hasilOOTD += " Pilih pakaian yang nyaman untuk membaca di perpustakaan.";
+    } else if (aktivitas === "kantin") {
+        hasilOOTD += " Santai dan nyaman untuk berada di kantin.";
+    }
+
+    if (style === "casual") {
+        hasilOOTD += " Tampil kasual dengan sepatu santai.";
+    } else if (style === "formal") {
+        hasilOOTD += " Pilih pakaian formal dan sepatu berwarna gelap.";
+    } else if (style === "sporty") {
+        hasilOOTD += " Tambahkan sentuhan sporty dengan sepatu olahraga.";
+    } else if (style === "minimalis") {
+        hasilOOTD += " Gaya minimalis dengan pakaian simpel dan warna netral.";
+    } else if (style === "bohemian") {
+        hasilOOTD += " Gaya bohemian dengan pakaian longgar dan aksen etnik.";
+    }
+
+    document.getElementById("hasilOOTD").innerHTML = hasilOOTD;
+    }
+
+    </script>
+</body>
+</html>
